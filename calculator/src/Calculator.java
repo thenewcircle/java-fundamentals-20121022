@@ -1,7 +1,14 @@
 public class Calculator {
 
 	public static boolean handleNumber(String token) {
-		return false; // TODO
+		// try-catch to distinguish numbers from non-numbers
+		try {
+			int number = Integer.parseInt(token);
+			System.out.println(number + " is a number");
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
 	}
 
 	public static boolean handleOperator(String token) {
@@ -46,15 +53,8 @@ public class Calculator {
 
 		// iterate over the tokens
 		for (String token : tokens) {
-
-			// try-catch to distinguish numbers from non-numbers
-			try {
-				int number = Integer.parseInt(token);
-				System.out.println(number + " is a number");
-			} catch (NumberFormatException e) {
-				if (!handleOperator(token)) {
-					System.out.println(token + " is garbage");
-				}
+			if (!handleNumber(token) && !handleOperator(token)) {
+				System.out.println(token + " is garbage");
 			}
 		}
 	}
