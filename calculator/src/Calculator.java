@@ -42,6 +42,25 @@ public class Calculator {
 		}
 	}
 
+	public static int calculate(String expression) {
+
+		// split the expression into individual tokens
+		String[] tokens = expression.split(" ");
+
+		// construct a new integer stack
+		Stack<Integer> stack = new Stack<Integer>();
+
+		// iterate over the tokens
+		for (String token : tokens) {
+			if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
+				System.out.println(token + " is garbage");
+			}
+		}
+
+		// return the result from the stack
+		return stack.pop();
+	}
+
 	/**
 	 * Takes a postfix-notation expression and outputs its value.
 	 * 
@@ -59,21 +78,9 @@ public class Calculator {
 		// get the command-line argument from the array
 		String expression = args[0];
 
-		// split the expression into individual tokens
-		String[] tokens = expression.split(" ");
-
-		// construct a new integer stack
-		Stack<Integer> stack = new Stack<Integer>();
-
-		// iterate over the tokens
-		for (String token : tokens) {
-			if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
-				System.out.println(token + " is garbage");
-			}
-		}
-
-		// print the result from the stack
-		System.out.println(stack.pop());
+		// print the result of calculate
+		int result = calculate(expression);
+		System.out.println(result);
 	}
 
 }
