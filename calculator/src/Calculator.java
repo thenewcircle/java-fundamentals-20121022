@@ -21,8 +21,12 @@ public class Calculator {
 
 		// iterate over the tokens
 		for (String token : tokens) {
-			System.out.println(token);
-			// TODO: do something interesting here!
+			try {
+				int number = Integer.parseInt(token);
+				System.out.println(number);
+			} catch (NumberFormatException e) {
+				System.out.println(token + " is not a number");
+			}
 		}
 	}
 
