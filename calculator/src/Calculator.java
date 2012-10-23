@@ -1,17 +1,19 @@
+import java.util.Stack;
+
 public class Calculator {
 
-	public static boolean handleNumber(String token) {
+	public static boolean handleNumber(String token, Stack<Integer> stack) {
 		// try-catch to distinguish numbers from non-numbers
 		try {
 			int number = Integer.parseInt(token);
-			System.out.println(number + " is a number");
+			// TODO: push number onto stack
 			return true;
 		} catch (NumberFormatException e) {
 			return false;
 		}
 	}
 
-	public static boolean handleOperator(String token) {
+	public static boolean handleOperator(String token, Stack<Integer> stack) {
 		// valid operators are all one character in length
 		if (token.length() != 1) {
 			return false;
@@ -24,7 +26,7 @@ public class Calculator {
 		case '-':
 		case '*':
 		case '/':
-			System.out.println(operator + " is an operator");
+			// TODO: pop two numbers, perform the op, push the result
 			return true;
 		default:
 			return false;
@@ -51,9 +53,12 @@ public class Calculator {
 		// split the expression into individual tokens
 		String[] tokens = expression.split(" ");
 
+		// construct a new integer stack
+		Stack<Integer> stack = new Stack<Integer>();
+
 		// iterate over the tokens
 		for (String token : tokens) {
-			if (!handleNumber(token) && !handleOperator(token)) {
+			if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
 				System.out.println(token + " is garbage");
 			}
 		}
