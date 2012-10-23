@@ -6,7 +6,7 @@ public class Calculator {
 		// try-catch to distinguish numbers from non-numbers
 		try {
 			int number = Integer.parseInt(token);
-			// TODO: push number onto stack
+			stack.push(number);
 			return true;
 		} catch (NumberFormatException e) {
 			return false;
@@ -19,14 +19,23 @@ public class Calculator {
 			return false;
 		}
 
+		// pop two numbers off the stack
+		int rhs = stack.pop(), lhs = stack.pop();
+
 		// switch to distinguish operators from garbage
 		char operator = token.charAt(0);
 		switch (operator) {
 		case '+':
+			stack.push(lhs + rhs);
+			return true;
 		case '-':
+			stack.push(lhs - rhs);
+			return true;
 		case '*':
+			stack.push(lhs * rhs);
+			return true;
 		case '/':
-			// TODO: pop two numbers, perform the op, push the result
+			stack.push(lhs / rhs);
 			return true;
 		default:
 			return false;
@@ -62,6 +71,9 @@ public class Calculator {
 				System.out.println(token + " is garbage");
 			}
 		}
+
+		// print the result from the stack
+		System.out.println(stack.pop());
 	}
 
 }
