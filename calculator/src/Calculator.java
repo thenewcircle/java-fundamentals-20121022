@@ -1,5 +1,13 @@
 public class Calculator {
 
+	public static boolean handleNumber(String token) {
+		return false; // TODO
+	}
+
+	public static boolean handleOperator(String token) {
+		return false; // TODO
+	}
+
 	/**
 	 * Takes a postfix-notation expression and outputs its value.
 	 * 
