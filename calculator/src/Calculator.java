@@ -5,7 +5,23 @@ public class Calculator {
 	}
 
 	public static boolean handleOperator(String token) {
-		return false; // TODO
+		// valid operators are all one character in length
+		if (token.length() != 1) {
+			return false;
+		}
+
+		// switch to distinguish operators from garbage
+		char operator = token.charAt(0);
+		switch (operator) {
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+			System.out.println(operator + " is an operator");
+			return true;
+		default:
+			return false;
+		}
 	}
 
 	/**
@@ -36,23 +52,7 @@ public class Calculator {
 				int number = Integer.parseInt(token);
 				System.out.println(number + " is a number");
 			} catch (NumberFormatException e) {
-
-				// valid operators are all one character in length
-				if (token.length() == 1) {
-					char operator = token.charAt(0);
-
-					// switch to distinguish operators from garbage
-					switch (operator) {
-					case '+':
-					case '-':
-					case '*':
-					case '/':
-						System.out.println(operator + " is an operator");
-						break;
-					default:
-						System.out.println(token + " is garbage");
-					}
-				} else {
+				if (!handleOperator(token)) {
 					System.out.println(token + " is garbage");
 				}
 			}
