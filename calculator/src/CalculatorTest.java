@@ -23,8 +23,10 @@ public class CalculatorTest {
 
 	@Test
 	public void handleOperatorMustPerformOperation() {
-		// setup
-		// do something
-		// assert
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(3);
+		stack.push(4);
+		assertTrue(Calculator.handleOperator("*", stack));
+		assertEquals(12, (int) stack.pop());
 	}
 }
