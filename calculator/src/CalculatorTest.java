@@ -29,4 +29,9 @@ public class CalculatorTest {
 		assertTrue(Calculator.handleOperator("*", stack));
 		assertEquals(12, (int) stack.pop());
 	}
+
+	@Test
+	public void calculatorMustEvaluateExpressionCorrectly() {
+		assertEquals(-4, Calculator.calculate("1 2 3 + -"));
+	}
 }
