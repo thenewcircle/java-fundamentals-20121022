@@ -1,6 +1,6 @@
 public class Lens {
 	private double zoom;
-	private double focus;
+	private final double focus;
 
 	public Lens(double zoom, double focus) {
 		this.zoom = zoom;
@@ -17,10 +17,6 @@ public class Lens {
 
 	public double getFocus() {
 		return focus;
-	}
-
-	public void setFocus(double focus) {
-		this.focus = focus;
 	}
 
 }

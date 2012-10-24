@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class FunTest {
 
 	@Test
@@ -38,6 +37,21 @@ public class FunTest {
 		p.switchOn();
 		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
 		b.insertProjector(p);
+	}
+
+	public void openSomeBags() {
+		Bag[] bags = { new LaptopBag(1.0), new LaptopBag(2.0),
+				new ProjectorBag("blue", 1.0, "nylon"),
+				new ProjectorBag("black", 0.1, "corduroy"), new LaptopBag(3.0) };
+		openBlackBags(bags);
+	}
+
+	public void openBlackBags(Bag[] bags) {
+		for (Bag bag : bags) {
+			if (bag.getColor().equals("black")) {
+				bag.open();
+			}
+		}
 	}
 
 }

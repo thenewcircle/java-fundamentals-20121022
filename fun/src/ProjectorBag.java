@@ -1,7 +1,7 @@
-public class ProjectorBag {
-	private String color;
-	private double size;
-	private String material;
+public class ProjectorBag implements Bag {
+	private final String color;
+	private final double size;
+	private final String material;
 	private boolean open;
 	private Projector projector;
 
@@ -9,6 +9,10 @@ public class ProjectorBag {
 		this.color = color;
 		this.size = size;
 		this.material = material;
+	}
+
+	public boolean isOpen() {
+		return open;
 	}
 
 	public void open() {
