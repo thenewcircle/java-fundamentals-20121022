@@ -1,22 +1,29 @@
 public class Projector {
-	boolean on;
-	Lens lens;
+	private boolean on;
+	private Lens lens;
 
-	void attachLens(Lens lens) {
+	public void attachLens(Lens lens) {
 		this.lens = lens;
 	}
 
-	Lens removeLens() {
+	public Lens removeLens() {
 		Lens lens = this.lens;
 		this.lens = null;
 		return lens;
 	}
 
-	void switchOn() {
+	public boolean isOn() {
+		return on;
+	}
+
+	public void switchOn() {
+		if (lens == null) {
+			throw new IllegalStateException();
+		}
 		on = true;
 	}
 
-	void switchOff() {
+	public void switchOff() {
 		on = false;
 	}
 }

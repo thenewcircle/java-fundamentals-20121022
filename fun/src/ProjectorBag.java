@@ -20,7 +20,7 @@ public class ProjectorBag {
 	}
 
 	public void insertProjector(Projector projector) {
-		if (projector.on) {
+		if (projector.isOn()) {
 			throw new IllegalStateException();
 		}
 		this.projector = projector;
