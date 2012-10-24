@@ -19,27 +19,29 @@ public class Calculator {
 			return false;
 		}
 
-		// pop two numbers off the stack
-		int rhs = stack.pop(), lhs = stack.pop();
-
 		// switch to distinguish operators from garbage
-		char operator = token.charAt(0);
-		switch (operator) {
+		Operator operator;
+		switch (token.charAt(0)) {
 		case '+':
-			stack.push(lhs + rhs);
-			return true;
+			operator = new Add();
+			break;
 		case '-':
-			stack.push(lhs - rhs);
-			return true;
+			operator = new Subtract();
+			break;
 		case '*':
-			stack.push(lhs * rhs);
-			return true;
+			operator = new Multiply();
+			break;
 		case '/':
-			stack.push(lhs / rhs);
-			return true;
+			operator = new Divide();
+			break;
 		default:
 			return false;
 		}
+
+		// pop two numbers off the stack and push the result
+		int rhs = stack.pop(), lhs = stack.pop();
+		stack.push(operator.operate(lhs, rhs));
+		return true;
 	}
 
 	public static int calculate(String expression) {
@@ -52,7 +54,7 @@ public class Calculator {
 
 		// iterate over the tokens
 		for (String token : tokens) {
-			if (!handleNumber(token, stack) && !handleOperator(token, stack)) {
+			if (!handleOperator(token, stack) && !handleNumber(token, stack)) {
 				System.out.println(token + " is garbage");
 			}
 		}
