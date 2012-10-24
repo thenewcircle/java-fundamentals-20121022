@@ -13,6 +13,7 @@ public class FunTest {
 		bag.material = "Nylon";
 		bag.open = true;
 		bag.projector = new Projector();
+		bag.removeProjector();
 
 		System.out.println(bag.color);
 		System.out.println(bag.size);
