@@ -8,11 +8,10 @@ public class FunTest {
 	@Test
 	public void test() {
 		// projector needs a lens
-		Lens l = new Lens();
+		Lens l = new Lens(1.0, 1.0);
 
 		// attach lens to projector
-		Projector p = new Projector();
-		p.attachLens(l);
+		Projector p = new Projector(l);
 
 		// insert projector in bag
 		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
@@ -30,11 +29,10 @@ public class FunTest {
 	@Test(expected = IllegalStateException.class)
 	public void insertingProjectorThatIsOnShouldThrowIllegalStateException() {
 		// projector needs a lens
-		Lens l = new Lens();
+		Lens l = new Lens(1.0, 1.0);
 
 		// attach lens to projector
-		Projector p = new Projector();
-		p.attachLens(l);
+		Projector p = new Projector(l);
 
 		// turn projector on, and insert in bag
 		p.switchOn();

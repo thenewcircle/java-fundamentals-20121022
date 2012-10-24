@@ -2,6 +2,10 @@ public class Projector {
 	private boolean on;
 	private Lens lens;
 
+	public Projector(Lens lens) {
+		this.lens = lens;
+	}
+
 	public void attachLens(Lens lens) {
 		this.lens = lens;
 	}
