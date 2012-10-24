@@ -27,4 +27,19 @@ public class FunTest {
 		assertSame(l2, l);
 	}
 
+	@Test(expected = IllegalStateException.class)
+	public void insertingProjectorThatIsOnShouldThrowIllegalStateException() {
+		// projector needs a lens
+		Lens l = new Lens();
+
+		// attach lens to projector
+		Projector p = new Projector();
+		p.attachLens(l);
+
+		// turn projector on, and insert in bag
+		p.switchOn();
+		ProjectorBag b = new ProjectorBag();
+		b.insertProjector(p);
+	}
+
 }

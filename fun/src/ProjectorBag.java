@@ -1,25 +1,28 @@
 public class ProjectorBag {
-	String color;
-	double size;
-	String material;
-	boolean open;
-	Projector projector;
+	private String color;
+	private double size;
+	private String material;
+	private boolean open;
+	private Projector projector;
 
-	void open() {
+	public void open() {
 		open = true;
 	}
 
-	void close() {
+	public void close() {
 		open = false;
 	}
 
-	Projector removeProjector() {
+	public Projector removeProjector() {
 		Projector projector = this.projector;
 		this.projector = null;
 		return projector;
 	}
 
-	void insertProjector(Projector projector) {
+	public void insertProjector(Projector projector) {
+		if (projector.on) {
+			throw new IllegalStateException();
+		}
 		this.projector = projector;
 	}
 }
