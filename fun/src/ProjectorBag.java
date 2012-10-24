@@ -5,6 +5,12 @@ public class ProjectorBag {
 	private boolean open;
 	private Projector projector;
 
+	public ProjectorBag(String color, double size, String material) {
+		this.color = color;
+		this.size = size;
+		this.material = material;
+	}
+
 	public void open() {
 		open = true;
 	}
@@ -25,4 +31,17 @@ public class ProjectorBag {
 		}
 		this.projector = projector;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public double getSize() {
+		return size;
+	}
+
+	public String getMaterial() {
+		return material;
+	}
+
 }

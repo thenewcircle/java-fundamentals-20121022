@@ -15,7 +15,7 @@ public class FunTest {
 		p.attachLens(l);
 
 		// insert projector in bag
-		ProjectorBag b = new ProjectorBag();
+		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
 		b.insertProjector(p);
 
 		// undo all that hard work
@@ -38,7 +38,7 @@ public class FunTest {
 
 		// turn projector on, and insert in bag
 		p.switchOn();
-		ProjectorBag b = new ProjectorBag();
+		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
 		b.insertProjector(p);
 	}
 
