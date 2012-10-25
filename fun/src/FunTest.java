@@ -1,4 +1,5 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import org.junit.Test;
 
@@ -39,6 +40,14 @@ public class FunTest {
 		b.insertProjector(p);
 	}
 
+	@Test
+	public void equalLaptopBagsMustBeStructurallyEqual() {
+		LaptopBag b1 = new LaptopBag(1.0);
+		LaptopBag b2 = new LaptopBag(1.0);
+		assertEquals(b1, b2);
+	}
+	
+	
 	public void openSomeBags() {
 		Bag[] bags = { new LaptopBag(1.0), new LaptopBag(2.0),
 				new ProjectorBag("blue", 1.0, "nylon"),
