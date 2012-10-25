@@ -14,7 +14,7 @@ public class FunTest {
 		Projector p = new Projector(l);
 
 		// insert projector in bag
-		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
+		ProjectorBag b = new ProjectorBag(Color.BLACK, 1.0, "nylon");
 		b.insertProjector(p);
 
 		// undo all that hard work
@@ -36,7 +36,7 @@ public class FunTest {
 
 		// turn projector on, and insert in bag
 		p.switchOn();
-		ProjectorBag b = new ProjectorBag("black", 1.0, "nylon");
+		ProjectorBag b = new ProjectorBag(Color.BLACK, 1.0, "nylon");
 		b.insertProjector(p);
 	}
 
@@ -50,14 +50,14 @@ public class FunTest {
 	
 	public void openSomeBags() {
 		Bag[] bags = { new LaptopBag(1.0), new LaptopBag(2.0),
-				new ProjectorBag("blue", 1.0, "nylon"),
-				new ProjectorBag("black", 0.1, "corduroy"), new LaptopBag(3.0) };
+				new ProjectorBag(Color.BLUE, 1.0, "nylon"),
+				new ProjectorBag(Color.BLACK, 0.1, "corduroy"), new LaptopBag(3.0) };
 		openBlackBags(bags);
 	}
 
 	public void openBlackBags(Bag[] bags) {
 		for (Bag bag : bags) {
-			if (bag.getColor().equals("black")) {
+			if (bag.getColor().equals(Color.BLACK)) {
 				bag.open();
 			}
 		}

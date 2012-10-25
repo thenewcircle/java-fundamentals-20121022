@@ -8,8 +8,8 @@ public class LaptopBag implements Bag {
 		this.size = size;
 	}
 
-	public String getColor() {
-		return "black";
+	public Color getColor() {
+		return Color.BLACK;
 	}
 
 	public double getSize() {

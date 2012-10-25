@@ -1,5 +1,5 @@
 public interface Bag {
-	String getColor();
+	Color getColor();
 	double getSize();
 	String getMaterial();
 	boolean isOpen();

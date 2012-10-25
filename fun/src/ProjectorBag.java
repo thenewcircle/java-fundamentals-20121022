@@ -1,11 +1,11 @@
 public class ProjectorBag implements Bag {
-	private final String color;
+	private final Color color;
 	private final double size;
 	private final String material;
 	private boolean open;
 	private Projector projector;
 
-	public ProjectorBag(String color, double size, String material) {
+	public ProjectorBag(Color color, double size, String material) {
 		this.color = color;
 		this.size = size;
 		this.material = material;
@@ -36,7 +36,7 @@ public class ProjectorBag implements Bag {
 		this.projector = projector;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
