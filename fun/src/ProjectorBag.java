@@ -1,26 +1,10 @@
-public class ProjectorBag implements Bag {
-	private final Color color;
-	private final double size;
+public class ProjectorBag extends Bag {
 	private final String material;
-	private boolean open;
 	private Projector projector;
 
 	public ProjectorBag(Color color, double size, String material) {
-		this.color = color;
-		this.size = size;
+		super(size, color);
 		this.material = material;
-	}
-
-	public boolean isOpen() {
-		return open;
-	}
-
-	public void open() {
-		open = true;
-	}
-
-	public void close() {
-		open = false;
 	}
 
 	public Projector removeProjector() {
@@ -34,14 +18,6 @@ public class ProjectorBag implements Bag {
 			throw new IllegalStateException();
 		}
 		this.projector = projector;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public double getSize() {
-		return size;
 	}
 
 	public String getMaterial() {

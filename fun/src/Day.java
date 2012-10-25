@@ -36,4 +36,5 @@ public enum Day {
 	};
 
 	public abstract String toString();
+
 }

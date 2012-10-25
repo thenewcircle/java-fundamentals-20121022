@@ -1,35 +1,12 @@
-public class LaptopBag implements Bag {
-
-	private final double size;
-	private boolean open;
+public class LaptopBag extends Bag {
 	private String laptop;
 
 	public LaptopBag(double size) {
-		this.size = size;
-	}
-
-	public Color getColor() {
-		return Color.BLACK;
-	}
-
-	public double getSize() {
-		return size;
+		super(size, Color.BLACK);
 	}
 
 	public String getMaterial() {
 		return "nylon";
-	}
-
-	public boolean isOpen() {
-		return open;
-	}
-
-	public void open() {
-		this.open = true;
-	}
-
-	public void close() {
-		this.open = false;
 	}
 
 	public String getLaptop() {
