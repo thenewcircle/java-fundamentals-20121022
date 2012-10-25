@@ -2,18 +2,18 @@ import java.util.Stack;
 
 public class Calculator {
 
-	public static boolean handleNumber(String token, Stack<Integer> stack) {
+	public static boolean handleNumber(String token, Stack<Expression> stack) {
 		// try-catch to distinguish numbers from non-numbers
 		try {
 			int number = Integer.parseInt(token);
-			stack.push(number);
+			stack.push(new NumberExpression(number));
 			return true;
 		} catch (NumberFormatException e) {
 			return false;
 		}
 	}
 
-	public static boolean handleOperator(String token, Stack<Integer> stack) {
+	public static boolean handleOperator(String token, Stack<Expression> stack) {
 		// valid operators are all one character in length
 		if (token.length() != 1) {
 			return false;
@@ -39,18 +39,18 @@ public class Calculator {
 		}
 
 		// pop two numbers off the stack and push the result
-		int rhs = stack.pop(), lhs = stack.pop();
-		stack.push(operator.operate(lhs, rhs));
+		Expression rhs = stack.pop(), lhs = stack.pop();
+		stack.push(new OperationExpression(operator, lhs, rhs));
 		return true;
 	}
 
-	public static int calculate(String expression) {
+	public static Expression parse(String expression) {
 
 		// split the expression into individual tokens
 		String[] tokens = expression.split(" ");
 
-		// construct a new integer stack
-		Stack<Integer> stack = new Stack<Integer>();
+		// construct a new expression stack
+		Stack<Expression> stack = new Stack<Expression>();
 
 		// iterate over the tokens
 		for (String token : tokens) {
@@ -81,7 +81,9 @@ public class Calculator {
 		String expression = args[0];
 
 		// print the result of calculate
-		int result = calculate(expression);
+		Expression tree = parse(expression);
+		
+		int result = tree.getValue();
 		System.out.println(result);
 	}
 
