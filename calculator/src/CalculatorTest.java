@@ -29,7 +29,7 @@ public class CalculatorTest {
 		assertTrue(Calculator.handleOperator("*", stack));
 		assertEquals(
 				new OperationExpression(
-						new Multiply(),
+						Operator.MULTIPLY,
 						new NumberExpression(3),
 						new NumberExpression(4)),
 				stack.pop());

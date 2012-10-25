@@ -23,16 +23,16 @@ public class Calculator {
 		Operator operator;
 		switch (token.charAt(0)) {
 		case '+':
-			operator = new Add();
+			operator = Operator.ADD;
 			break;
 		case '-':
-			operator = new Subtract();
+			operator = Operator.SUBTRACT;
 			break;
 		case '*':
-			operator = new Multiply();
+			operator = Operator.MULTIPLY;
 			break;
 		case '/':
-			operator = new Divide();
+			operator = Operator.DIVIDE;
 			break;
 		default:
 			return false;
