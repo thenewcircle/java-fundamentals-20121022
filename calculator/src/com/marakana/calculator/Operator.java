@@ -1,3 +1,5 @@
+package com.marakana.calculator;
+
 public enum Operator {
 	ADD {
 		public int operate(int lhs, int rhs) {

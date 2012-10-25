@@ -1,9 +1,16 @@
+package com.marakana.calculator.test;
+
 import static org.junit.Assert.*;
 
 import java.util.Stack;
 
 import org.junit.Test;
 
+import com.marakana.calculator.Calculator;
+import com.marakana.calculator.Operator;
+import com.marakana.calculator.expressions.Expression;
+import com.marakana.calculator.expressions.NumberExpression;
+import com.marakana.calculator.expressions.OperationExpression;
 
 public class CalculatorTest {
 
@@ -27,12 +34,8 @@ public class CalculatorTest {
 		stack.push(new NumberExpression(3));
 		stack.push(new NumberExpression(4));
 		assertTrue(Calculator.handleOperator("*", stack));
-		assertEquals(
-				new OperationExpression(
-						Operator.MULTIPLY,
-						new NumberExpression(3),
-						new NumberExpression(4)),
-				stack.pop());
+		assertEquals(new OperationExpression(Operator.MULTIPLY,
+				new NumberExpression(3), new NumberExpression(4)), stack.pop());
 	}
 
 	@Test

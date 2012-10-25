@@ -1,3 +1,5 @@
+package com.marakana.calculator.expressions;
+
 public class NumberExpression implements Expression {
 	private final int value;
 

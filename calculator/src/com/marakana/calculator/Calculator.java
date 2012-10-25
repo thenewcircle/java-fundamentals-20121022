@@ -1,4 +1,10 @@
+package com.marakana.calculator;
+
 import java.util.Stack;
+
+import com.marakana.calculator.expressions.Expression;
+import com.marakana.calculator.expressions.NumberExpression;
+import com.marakana.calculator.expressions.OperationExpression;
 
 public class Calculator {
 
@@ -82,7 +88,7 @@ public class Calculator {
 
 		// print the result of calculate
 		Expression tree = parse(expression);
-		
+
 		int result = tree.getValue();
 		System.out.println(result);
 	}
