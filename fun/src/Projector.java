@@ -1,6 +1,5 @@
-public class Projector {
-	private boolean on;
-	private Lens lens;
+public class Projector extends Device {
+	Lens lens;
 
 	public Projector(Lens lens) {
 		this.lens = lens;
@@ -14,20 +13,5 @@ public class Projector {
 		Lens lens = this.lens;
 		this.lens = null;
 		return lens;
-	}
-
-	public boolean isOn() {
-		return on;
-	}
-
-	public void switchOn() {
-		if (lens == null) {
-			throw new IllegalStateException();
-		}
-		on = true;
-	}
-
-	public void switchOff() {
-		on = false;
 	}
 }

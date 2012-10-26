@@ -1,4 +1,4 @@
-public abstract class Bag<T> {
+public abstract class Bag<T extends Device> {
 	protected final double size;
 	protected final Color color;
 	protected boolean open;
@@ -30,9 +30,9 @@ public abstract class Bag<T> {
 	}
 
 	public void insertContents(T contents) {
-//		if (contents.isOn()) {
-//			throw new IllegalStateException();
-//		}
+		if (contents.isOn()) {
+			throw new IllegalStateException();
+		}
 		this.contents = contents;
 	}
 
