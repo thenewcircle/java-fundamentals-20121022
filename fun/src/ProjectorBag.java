@@ -1,23 +1,9 @@
-public class ProjectorBag extends Bag {
+public class ProjectorBag extends Bag<Projector> {
 	private final String material;
-	private Projector projector;
 
 	public ProjectorBag(Color color, double size, String material) {
 		super(size, color);
 		this.material = material;
-	}
-
-	public Projector removeProjector() {
-		Projector projector = this.projector;
-		this.projector = null;
-		return projector;
-	}
-
-	public void insertProjector(Projector projector) {
-		if (projector.isOn()) {
-			throw new IllegalStateException();
-		}
-		this.projector = projector;
 	}
 
 	public String getMaterial() {

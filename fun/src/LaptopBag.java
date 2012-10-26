@@ -1,5 +1,4 @@
-public class LaptopBag extends Bag {
-	private String laptop;
+public class LaptopBag extends Bag<Laptop> {
 
 	public LaptopBag(double size) {
 		super(size, Color.BLACK);
@@ -7,14 +6,6 @@ public class LaptopBag extends Bag {
 
 	public String getMaterial() {
 		return "nylon";
-	}
-
-	public String getLaptop() {
-		return laptop;
-	}
-
-	public void setLaptop(String laptop) {
-		this.laptop = laptop;
 	}
 
 	@Override

@@ -15,10 +15,10 @@ public class FunTest {
 
 		// insert projector in bag
 		ProjectorBag b = new ProjectorBag(Color.BLACK, 1.0, "nylon");
-		b.insertProjector(p);
+		b.insertContents(p);
 
 		// undo all that hard work
-		Projector p2 = b.removeProjector();
+		Projector p2 = b.removeContents();
 		Lens l2 = p2.removeLens();
 
 		// we should get back the same objects we put in!
@@ -37,7 +37,7 @@ public class FunTest {
 		// turn projector on, and insert in bag
 		p.switchOn();
 		ProjectorBag b = new ProjectorBag(Color.BLACK, 1.0, "nylon");
-		b.insertProjector(p);
+		b.insertContents(p);
 	}
 
 	@Test
